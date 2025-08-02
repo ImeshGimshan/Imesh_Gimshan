@@ -9,7 +9,7 @@ export default function Nav() {
   const navItems = ['Home', 'About', 'Tech Stack', 'Projects', 'Contact'];
 
   return (
-    <nav className="bg-transparent backdrop-blur-sm border-b-1 border-white/20 rounded-2xl fixed top-0 left-0 w-full z-30">
+    <nav className="bg-transparent backdrop-blur-sm border-b-1 border-white/30 rounded-2xl fixed top-0 left-0 w-full z-30">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <h1 className="text-lg font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent p-3 md:p-5 md:text-2xl font-poppins">
           Imesh Gimshan

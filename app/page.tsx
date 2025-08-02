@@ -9,6 +9,8 @@ export default function Page() {
       <Background />
       <Nav />
       <Hero />
+      <Hero />
+      <Hero />
     </>
   );
 }

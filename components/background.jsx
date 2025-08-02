@@ -1,18 +1,19 @@
 import Particles from '../app/ui/particles';
+// import Galaxy from '@/app/ui/aurora';
 
 export default function Background() {
     return (
-        <div className='bg-black fixed top-0 left-0 w-screen h-screen -z-10 pointer-events-none'>
+        <div className="fixed inset-0 w-full h-full overflow-hidden">
             <Particles
-                particleColors={['#00b7bb']}
-                particleCount={700}
-                particleSpread={7.5}
-                speed={0.05}
-                particleBaseSize={175}
-                moveParticlesOnHover={true}
+                particleColors={['#007370']}
+                particleCount={400}
+                particleSpread={10}
+                speed={0.3}
+                particleBaseSize={150}
+                moveParticlesOnHover={false}
                 alphaParticles={true}
-                disableRotation={false}
+                disableRotation={true}
             />
         </div>
     );
-    }
+}
