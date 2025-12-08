@@ -9,8 +9,7 @@ module.exports = {
       colors: {
       },
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
-        gothic: ['"Century Gothic"', 'sans-serif'],
+        tektur: ["Tektur", "sans-serif"],
       },
     },
   },

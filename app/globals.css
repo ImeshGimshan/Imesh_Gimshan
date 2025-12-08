@@ -1,94 +1,54 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --primary: #C1D5EF;
-  --secondary: #96b5da;
-  --blurColor: #3185d8;
-  --glassColor: rgba(66, 13, 150, 0.021);
-  --textColor: #00b8bb;
-  --blue1: #CFCFCF;
-  --blue2: #ACACAC;
+  --background: #0A0A0A;
+  --foreground: #F8FCFB;
+  --primary: #43CAB1;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-blur: var(--blurColor);
-  --color-text: var(--textColor);
-  --color-glass: var(--glassColor);
-  --color-blue1: var(--blue1);
-  --color-blue2: var(--blue2);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #F8FCFB;
+    --foreground: #0A0A0A;
   }
-}
+} */
 
 body {
   background: var(--background);
   color: var(--foreground);
-  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: "Tektur", sans-serif;
 }
 
 @font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-family: "Tektur";
+  src: url("/fonts/Tektur-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-family: "Tektur";
+  src: url("/fonts/Tektur-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Tektur";
+  src: url("/fonts/Tektur-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+  font-family: "Tektur";
+  src: url("/fonts/Tektur-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Century Gothic';
-  src: url('/fonts/Gothic/CenturyGothic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Century Gothic';
-  src: url('/fonts/Gothic/GOTHICB0.TTF') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Century Gothic';
-  src: url('/fonts/Gothic/GOTHICI.TTF') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Century Gothic';
-  src: url('/fonts/Gothic/GOTHICBI.TTF') format('truetype');
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
 }

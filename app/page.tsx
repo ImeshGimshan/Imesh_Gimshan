@@ -1,16 +1,14 @@
 'use client';
-import Background from '@/components/background';
-import Nav from '@/components/header/nav';
-import Hero from '@/components/hero/hero';
+import About from '@/components/about/page';
+import Nav from '@/components/header/page';
+import Hero from '@/components/hero/page.jsx';
 
 export default function Page() {
   return (
     <>
-      <Background />
-      <Nav />
-      <Hero />
-      <Hero />
-      <Hero />
+    <Nav />
+    <Hero />
+    <About />
     </>
   );
 }
