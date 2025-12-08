@@ -4,6 +4,9 @@
   --background: #0A0A0A;
   --foreground: #F8FCFB;
   --primary: #43CAB1;
+}
+
+@theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
