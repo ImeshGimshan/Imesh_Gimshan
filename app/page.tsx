@@ -4,6 +4,7 @@ import Nav from '@/components/header/page';
 import Hero from '@/components/hero/page.jsx';
 import Teckstack from '@/components/teckStack/page';
 import Timeline from '@/components/timeline/page';
+import Projects from '@/components/projects/page';
 import Footer from '@/components/footer/page';
 import SmoothScroll from '@/components/ui/SmoothScroll';
 
@@ -15,6 +16,7 @@ export default function Page() {
       <About />
       <Teckstack />
       <Timeline />
+      <Projects />
       <Footer />
     </SmoothScroll>
   );

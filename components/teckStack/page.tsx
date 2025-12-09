@@ -25,7 +25,7 @@ export default function Teckstack() {
     return (
         <section id="tech-stack" className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-12 sm:py-16 md:py-20 lg:py-24">
             <div className="mb-10 sm:mb-12 md:mb-16">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
                     <span className="text-white">Tech </span>
                     <span className="text-primary">Stack</span>
                     <span className="text-white"> and </span>

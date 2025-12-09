@@ -27,14 +27,22 @@ export default function Nav() {
             }`}>
                 <div className="flex items-center justify-between max-w-7xl mx-auto px-3 py-3 sm:px-4 sm:py-3.5 md:px-6 md:py-4 lg:px-8 lg:py-5">
                     {/* Logo - Responsive sizing */}
-                    <div className="text-primary font-bold text-base sm:text-lg md:text-xl lg:text-2xl whitespace-nowrap">
+                    <a 
+                        href="#hero" 
+                        onClick={(e) => {
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        className="text-primary font-bold text-base sm:text-lg md:text-xl lg:text-2xl whitespace-nowrap hover:text-cyan-300 transition-colors cursor-pointer"
+                    >
                         Imesh Gimshan
-                    </div>
+                    </a>
 
                     {/* Desktop Navigation - Hidden on mobile/tablet */}
                     <div className="hidden lg:flex items-center gap-8 xl:gap-12 font-medium">
                         <NavLink href="#about">About</NavLink>
                         <NavLink href="#tech-stack">Tech Stack</NavLink>
+                        <NavLink href="#timeline">My Journey</NavLink>
                         <NavLink href="#projects">Projects</NavLink>
                         <NavLink href="#contact">Contact</NavLink>
                     </div>
@@ -53,6 +61,7 @@ export default function Nav() {
                         <div className="flex flex-col gap-1">
                             <NavLink href="#about" onClick={closeMenu} mobile>About</NavLink>
                             <NavLink href="#tech-stack" onClick={closeMenu} mobile>Tech Stack</NavLink>
+                            <NavLink href="#timeline" onClick={closeMenu} mobile>My Journey</NavLink>
                             <NavLink href="#projects" onClick={closeMenu} mobile>Projects</NavLink>
                             <NavLink href="#contact" onClick={closeMenu} mobile>Contact</NavLink>
                         </div>
