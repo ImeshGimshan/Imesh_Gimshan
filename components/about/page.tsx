@@ -1,6 +1,8 @@
 'use client';
 
 import RoleCarousel from '@/components/ui/RoleCarousel';
+import SectionContainer from '@/components/ui/SectionContainer';
+import SectionHeading from '@/components/ui/SectionHeading';
 
 export default function About() {
     const roles = [
@@ -13,12 +15,12 @@ export default function About() {
     ];
 
     return (
-        <section id="about" className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-12 sm:py-16 md:py-20 lg:py-24">
+        <SectionContainer id="about">
             <div className="mb-10 sm:mb-12 md:mb-16">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
-                    <span className="text-white">Who </span>
-                    <span className="text-primary">I Am</span>
-                </h2>
+                <SectionHeading>
+                    <SectionHeading.Part>Who </SectionHeading.Part>
+                    <SectionHeading.Part primary>I Am</SectionHeading.Part>
+                </SectionHeading>
             </div>
 
             <div className="max-w-6xl items-center justify-center mx-auto">
@@ -31,6 +33,6 @@ export default function About() {
             <div className="mt-16 sm:mt-20">
                 <RoleCarousel roles={roles} speed={60} />
             </div>
-        </section>
+        </SectionContainer>
     )
 }

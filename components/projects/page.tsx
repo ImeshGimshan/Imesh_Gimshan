@@ -2,6 +2,8 @@
 
 import { useRef } from 'react';
 import ProjectCard from '@/components/ui/ProjectCard';
+import SectionContainer from '@/components/ui/SectionContainer';
+import SectionHeading from '@/components/ui/SectionHeading';
 import {
     Carousel,
     CarouselContent,
@@ -109,13 +111,13 @@ export default function Projects() {
     ];
 
     return (
-        <section id="projects" className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-12 sm:py-16 md:py-20 lg:py-24">
+        <SectionContainer id="projects">
             {/* Projects Section */}
             <div className="mb-16 sm:mb-20">
                 <div className="mb-10 sm:mb-12 md:mb-16">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
-                        <span className="text-primary">Projects</span>
-                    </h2>
+                    <SectionHeading>
+                        <SectionHeading.Part primary>Projects</SectionHeading.Part>
+                    </SectionHeading>
                 </div>
                 <Carousel
                     opts={{
@@ -140,10 +142,10 @@ export default function Projects() {
             {/* Contributed Projects Section */}
             <div>
                 <div className="mb-10 sm:mb-12 md:mb-16">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
-                        <span className="text-white">Contributed </span>
-                        <span className="text-primary">Projects</span>
-                    </h2>
+                    <SectionHeading>
+                        <SectionHeading.Part>Contributed </SectionHeading.Part>
+                        <SectionHeading.Part primary>Projects</SectionHeading.Part>
+                    </SectionHeading>
                 </div>
                 <Carousel
                     opts={{
@@ -164,6 +166,6 @@ export default function Projects() {
                     <CarouselNext />
                 </Carousel>
             </div>
-        </section>
+        </SectionContainer>
     );
 }

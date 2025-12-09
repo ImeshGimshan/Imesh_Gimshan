@@ -1,4 +1,5 @@
 import { ExternalLink, Github } from 'lucide-react';
+import Card from './Card';
 
 interface ProjectCardProps {
     title: string;
@@ -20,7 +21,7 @@ export default function ProjectCard({
     githubLink,
 }: ProjectCardProps) {
     return (
-        <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl overflow-hidden hover:bg-white/10 hover:border-primary/30 transition-all duration-300 flex-shrink-0 w-full h-full">
+        <Card className="group overflow-hidden flex-shrink-0 w-full h-full p-0">
             {/* Project Image */}
             <div className="relative h-48 sm:h-56 overflow-hidden">
                 <img
@@ -81,6 +82,6 @@ export default function ProjectCard({
                     )}
                 </div>
             </div>
-        </div>
+        </Card>
     );
 }

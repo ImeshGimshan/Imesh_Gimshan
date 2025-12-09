@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Card from './Card';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -98,7 +99,7 @@ export default function ScrollTimeline({ events }: ScrollTimelineProps) {
                         >
                             {/* Content Card */}
                             <div className={`w-full md:w-5/12 ${isLeft ? 'md:pr-12' : 'md:pl-12'}`}>
-                                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:bg-white/10 hover:border-primary/30 transition-all duration-300 group">
+                                <Card className="p-6 sm:p-8 group">
                                     <div className="flex items-center gap-2 text-primary text-sm sm:text-base mb-3">
                                         <svg
                                             className="w-4 h-4"
@@ -119,7 +120,7 @@ export default function ScrollTimeline({ events }: ScrollTimelineProps) {
                                     <p className="text-white/80 text-sm sm:text-base leading-relaxed">
                                         {event.description}
                                     </p>
-                                </div>
+                                </Card>
                             </div>
 
                             {/* Center Dot */}

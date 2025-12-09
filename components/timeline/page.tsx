@@ -1,6 +1,8 @@
 'use client';
 
 import ScrollTimeline from '@/components/ui/ScrollTimeline';
+import SectionContainer from '@/components/ui/SectionContainer';
+import SectionHeading from '@/components/ui/SectionHeading';
 
 export default function Timeline() {
     const timelineEvents = [
@@ -22,15 +24,15 @@ export default function Timeline() {
     ];
 
     return (
-        <section id="timeline" className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-12 sm:py-16 md:py-20 lg:py-24">
+        <SectionContainer id="timeline">
             <div className="mb-10 sm:mb-12 md:mb-16">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
-                    <span className="text-white">My </span>
-                    <span className="text-primary">Journey</span>
-                </h2>
+                <SectionHeading>
+                    <SectionHeading.Part>My </SectionHeading.Part>
+                    <SectionHeading.Part primary>Journey</SectionHeading.Part>
+                </SectionHeading>
             </div>
 
             <ScrollTimeline events={timelineEvents} />
-        </section>
+        </SectionContainer>
     );
 }

@@ -7,12 +7,35 @@ import MenuButton from '@/components/ui/MenuButton';
 export default function Nav() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [activeSection, setActiveSection] = useState('');
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
+            
+            // Detect active section
+            const sections = ['about', 'tech-stack', 'timeline', 'projects', 'contact'];
+            const scrollPosition = window.scrollY + 150; // Offset for header
+
+            for (const section of sections) {
+                const element = document.getElementById(section);
+                if (element) {
+                    const { offsetTop, offsetHeight } = element;
+                    if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                        setActiveSection(section);
+                        break;
+                    }
+                }
+            }
+
+            // If at top, clear active section
+            if (window.scrollY < 100) {
+                setActiveSection('');
+            }
         };
+        
         window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Initial check
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -40,11 +63,11 @@ export default function Nav() {
 
                     {/* Desktop Navigation - Hidden on mobile/tablet */}
                     <div className="hidden lg:flex items-center gap-8 xl:gap-12 font-medium">
-                        <NavLink href="#about">About</NavLink>
-                        <NavLink href="#tech-stack">Tech Stack</NavLink>
-                        <NavLink href="#timeline">My Journey</NavLink>
-                        <NavLink href="#projects">Projects</NavLink>
-                        <NavLink href="#contact">Contact</NavLink>
+                        <NavLink href="#about" isActive={activeSection === 'about'}>About</NavLink>
+                        <NavLink href="#tech-stack" isActive={activeSection === 'tech-stack'}>Tech Stack</NavLink>
+                        <NavLink href="#timeline" isActive={activeSection === 'timeline'}>My Journey</NavLink>
+                        <NavLink href="#projects" isActive={activeSection === 'projects'}>Projects</NavLink>
+                        <NavLink href="#contact" isActive={activeSection === 'contact'}>Contact</NavLink>
                     </div>
 
                     {/* Mobile/Tablet Menu Button */}
@@ -59,11 +82,11 @@ export default function Nav() {
                 >
                     <div className="px-3 pb-3 sm:px-4 sm:pb-4 md:px-6 md:pb-5 pt-2 border-t border-foreground/10">
                         <div className="flex flex-col gap-1">
-                            <NavLink href="#about" onClick={closeMenu} mobile>About</NavLink>
-                            <NavLink href="#tech-stack" onClick={closeMenu} mobile>Tech Stack</NavLink>
-                            <NavLink href="#timeline" onClick={closeMenu} mobile>My Journey</NavLink>
-                            <NavLink href="#projects" onClick={closeMenu} mobile>Projects</NavLink>
-                            <NavLink href="#contact" onClick={closeMenu} mobile>Contact</NavLink>
+                            <NavLink href="#about" onClick={closeMenu} mobile isActive={activeSection === 'about'}>About</NavLink>
+                            <NavLink href="#tech-stack" onClick={closeMenu} mobile isActive={activeSection === 'tech-stack'}>Tech Stack</NavLink>
+                            <NavLink href="#timeline" onClick={closeMenu} mobile isActive={activeSection === 'timeline'}>My Journey</NavLink>
+                            <NavLink href="#projects" onClick={closeMenu} mobile isActive={activeSection === 'projects'}>Projects</NavLink>
+                            <NavLink href="#contact" onClick={closeMenu} mobile isActive={activeSection === 'contact'}>Contact</NavLink>
                         </div>
                     </div>
                 </div>
