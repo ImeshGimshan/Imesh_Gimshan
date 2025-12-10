@@ -1,9 +1,10 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import ProjectCard from '@/components/ui/ProjectCard';
 import SectionContainer from '@/components/ui/SectionContainer';
 import SectionHeading from '@/components/ui/SectionHeading';
+import { projectStorage, Project } from '@/lib/storage';
 import {
     Carousel,
     CarouselContent,
@@ -22,93 +23,19 @@ export default function Projects() {
         Autoplay({ delay: 3000, stopOnInteraction: false })
     );
 
-    const projects = [
-        {
-            title: 'Caffeine Brew',
-            subtitle: '(E-Commerce platform)',
-            description: 'A online coffee shop',
-            image: '/assets/projects/caffienebrew.png',
-            tags: ['Php', 'MySQL', 'JS', 'CSS'],
-            demoLink: 'https://demo-caffeine.com',
-            githubLink: 'https://github.com/ImeshGimshan/caffeine-brew',
-        },
-        {
-            title: 'Hyper POS',
-            subtitle: '(Enterprise application)',
-            description: 'Online and Real time point of sales System',
-            image: '/assets/projects/hyperpos.png',
-            tags: ['Spring', 'MySQL', 'React', 'Tailwind'],
-            demoLink: 'https://demo-hyperpos.com',
-            githubLink: 'https://github.com/ImeshGimshan/hyper-pos',
-        },
-        {
-            title: 'Bidzy',
-            subtitle: '(Auction platform)',
-            description: 'Real time auction and bidding platform',
-            image: '/assets/projects/bidzy.png',
-            tags: ['Net', 'MSSQL', 'React', 'Tailwind'],
-            demoLink: 'https://demo-bidzy.com',
-            githubLink: 'https://github.com/ImeshGimshan/bidzy',
-        },
-        {
-            title: 'Caffeine Brew',
-            subtitle: '(E-Commerce platform)',
-            description: 'A online coffee shop',
-            image: '/assets/projects/caffienebrew.png',
-            tags: ['Php', 'MySQL', 'JS', 'CSS'],
-            demoLink: 'https://demo-caffeine.com',
-            githubLink: 'https://github.com/ImeshGimshan/caffeine-brew',
-        },
-        {
-            title: 'Hyper POS',
-            subtitle: '(Enterprise application)',
-            description: 'Online and Real time point of sales System',
-            image: '/assets/projects/hyperpos.png',
-            tags: ['Spring', 'MySQL', 'React', 'Tailwind'],
-            demoLink: 'https://demo-hyperpos.com',
-            githubLink: 'https://github.com/ImeshGimshan/hyper-pos',
-        },
-        {
-            title: 'Bidzy',
-            subtitle: '(Auction platform)',
-            description: 'Real time auction and bidding platform',
-            image: '/assets/projects/bidzy.png',
-            tags: ['Net', 'MSSQL', 'React', 'Tailwind'],
-            demoLink: 'https://demo-bidzy.com',
-            githubLink: 'https://github.com/ImeshGimshan/bidzy',
-        }
+    const [projects, setProjects] = useState<Project[]>([]);
+    const [contributedProjects, setContributedProjects] = useState<Project[]>([]);
 
-    ];
+    useEffect(() => {
+        loadProjects();
+    }, []);
 
-    const contributedProjects = [
-        {
-            title: 'Nexora',
-            subtitle: '(ACDS - NSBM)',
-            description: 'Nexora 1.0 is an inter-university hackathon',
-            image: '/assets/projects/nexora.png',
-            tags: ['React', 'MySQL', 'JS', 'CSS'],
-            demoLink: 'https://nexora.acds.lk',
-            githubLink: 'https://github.com/ACDS/nexora',
-        },
-        {
-            title: 'IEEE-Day(2025)',
-            subtitle: '',
-            description: 'Online and Real time point of sales System',
-            image: '/assets/projects/ieeeday.png',
-            tags: ['Spring', 'MySQL', 'React', 'Tailwind'],
-            demoLink: 'https://ieeeday2025.com',
-            githubLink: 'https://github.com/IEEE/day-2025',
-        },
-        {
-            title: 'Open Squid',
-            subtitle: '',
-            description: 'Real time auction and bidding platform',
-            image: '/assets/projects/opensquid.png',
-            tags: ['Net', 'MSSQL', 'React', 'Tailwind'],
-            demoLink: 'https://opensquid.org',
-            githubLink: 'https://github.com/opensquid/platform',
-        },
-    ];
+    const loadProjects = async () => {
+        const personal = await projectStorage.getByType('personal');
+        const contributed = await projectStorage.getByType('contributed');
+        setProjects(personal);
+        setContributedProjects(contributed);
+    };
 
     return (
         <SectionContainer id="projects">
